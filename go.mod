@@ -1,8 +1,6 @@
 module github.com/casbin/casnode
 
-go 1.23
-
-toolchain go1.24.10
+go 1.23.0
 
 require (
 	github.com/astaxie/beego v1.12.3
