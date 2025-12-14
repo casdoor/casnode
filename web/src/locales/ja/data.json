@@ -227,12 +227,12 @@
   },
   "login": {
     "Details": "Details",
+    "Failed to log in": "Failed to log in",
     "Help": "Help",
     "Logged in successfully": "Logged in successfully",
     "Signing In Error": "Signing In Error",
-    "Signing in...": "Signing in...",
-    "Failed to log in": "Failed to log in",
-    "Signing in automatically...": "Signing in automatically..."
+    "Signing in automatically...": "Signing in automatically...",
+    "Signing in...": "Signing in..."
   },
   "member": {
     "'s all created topics": "'s all created topics",
@@ -315,6 +315,8 @@
     "Created time": "作成日時",
     "Delete moderator success": "モデレーターの削除に成功しました",
     "Description": "説明",
+    "Gitter API Token": "Gitter API Token",
+    "Gitter Room URL": "Gitter Room URL",
     "Google Group Cookie": "Google グループのクッキー",
     "Header image": "ヘッダー画像",
     "Hot": "ホット",
@@ -377,6 +379,7 @@
   },
   "plane": {
     "Add new plane": "新しい平面を追加",
+    "Are you sure to delete plane": "Are you sure to delete plane",
     "Background color": "背景色",
     "Change image": "画像の変更",
     "Creat plane success": "Creat plane success",
@@ -446,6 +449,7 @@
     "Click here to search in ": "ここをクリックして検索 ",
     "No topics found": "トピックが見つかりません",
     "Press Enter to search in site.": "Enterキーを押してサイト内を検索します。",
+    "Search result of ": "Search result of ",
     "loading...": "読み込み中..."
   },
   "sensitive": {
@@ -458,6 +462,7 @@
   "tab": {
     ", the number of posts is": "、投稿の数は",
     "Add new tab": "新しいタブを追加",
+    "Are you sure to delete tab": "Are you sure to delete tab",
     "Creat tab success": "タブの作成に成功",
     "Create": "作成",
     "Created time": "作成日時",
@@ -587,6 +592,7 @@
   },
   "translator": {
     "Add translator information success": "翻訳者情報の追加に成功しました",
+    "Are you sure to delete translator": "Are you sure to delete translator",
     "Delete": "削除",
     "Delete translator success": "翻訳者を削除しました",
     "Disable": "無効",

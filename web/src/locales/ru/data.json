@@ -227,12 +227,12 @@
   },
   "login": {
     "Details": "Details",
+    "Failed to log in": "Failed to log in",
     "Help": "Help",
     "Logged in successfully": "Logged in successfully",
     "Signing In Error": "Signing In Error",
-    "Signing in...": "Signing in...",
-    "Failed to log in": "Failed to log in",
-    "Signing in automatically...": "Signing in automatically..."
+    "Signing in automatically...": "Signing in automatically...",
+    "Signing in...": "Signing in..."
   },
   "member": {
     "'s all created topics": "'s all created topics",
@@ -315,6 +315,8 @@
     "Created time": "Время создания",
     "Delete moderator success": "Успешное удаление модератора",
     "Description": "Описание",
+    "Gitter API Token": "Gitter API Token",
+    "Gitter Room URL": "Gitter Room URL",
     "Google Group Cookie": "Cookie группы Google",
     "Header image": "Изображение заголовка",
     "Hot": "Горячая",
@@ -377,6 +379,7 @@
   },
   "plane": {
     "Add new plane": "Добавить плоскость",
+    "Are you sure to delete plane": "Are you sure to delete plane",
     "Background color": "Цвет фона",
     "Change image": "Изменить изображение",
     "Creat plane success": "Плоскость креата выполнена",
@@ -446,6 +449,7 @@
     "Click here to search in ": "Нажмите здесь для поиска в ",
     "No topics found": "Темы не найдены",
     "Press Enter to search in site.": "Нажмите Enter для поиска на сайте.",
+    "Search result of ": "Search result of ",
     "loading...": "загрузка..."
   },
   "sensitive": {
@@ -458,6 +462,7 @@
   "tab": {
     ", the number of posts is": ", количество сообщений",
     "Add new tab": "Добавить новую вкладку",
+    "Are you sure to delete tab": "Are you sure to delete tab",
     "Creat tab success": "Успешная вкладка Creat",
     "Create": "Создать",
     "Created time": "Время создания",
@@ -587,6 +592,7 @@
   },
   "translator": {
     "Add translator information success": "Информация переводчика успешно добавлена",
+    "Are you sure to delete translator": "Are you sure to delete translator",
     "Delete": "Удалить",
     "Delete translator success": "Переводчик успешно удален",
     "Disable": "Отключено",

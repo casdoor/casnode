@@ -227,12 +227,12 @@
   },
   "login": {
     "Details": "Details",
+    "Failed to log in": "Failed to log in",
     "Help": "Help",
     "Logged in successfully": "Logged in successfully",
     "Signing In Error": "Signing In Error",
-    "Signing in...": "Signing in...",
-    "Failed to log in": "Failed to log in",
-    "Signing in automatically...": "Signing in automatically..."
+    "Signing in automatically...": "Signing in automatically...",
+    "Signing in...": "Signing in..."
   },
   "member": {
     "'s all created topics": "'s all created topics",
@@ -315,6 +315,8 @@
     "Created time": "創建時間",
     "Delete moderator success": "移除版主成功",
     "Description": "簡介",
+    "Gitter API Token": "Gitter API Token",
+    "Gitter Room URL": "Gitter Room URL",
     "Google Group Cookie": "Google Group Cookie",
     "Header image": "頭部圖片",
     "Hot": "熱度",
@@ -377,6 +379,7 @@
   },
   "plane": {
     "Add new plane": "新增位面",
+    "Are you sure to delete plane": "Are you sure to delete plane",
     "Background color": "背景顏色",
     "Change image": "更換圖標",
     "Creat plane success": "創建位面成功",
@@ -446,6 +449,7 @@
     "Click here to search in ": "點擊此處跳轉搜索：",
     "No topics found": "沒有找到任何帖子",
     "Press Enter to search in site.": "按回車鍵以在站內搜索。",
+    "Search result of ": "Search result of ",
     "loading...": "加載中..."
   },
   "sensitive": {
@@ -458,6 +462,7 @@
   "tab": {
     ", the number of posts is": "，帖子個數為",
     "Add new tab": "新建類別",
+    "Are you sure to delete tab": "Are you sure to delete tab",
     "Creat tab success": "創建類別成功",
     "Create": "創建",
     "Created time": "創建時間",
@@ -587,6 +592,7 @@
   },
   "translator": {
     "Add translator information success": "添加翻譯信息成功",
+    "Are you sure to delete translator": "Are you sure to delete translator",
     "Delete": "刪除",
     "Delete translator success": "刪除翻譯平臺成功",
     "Disable": "禁用",

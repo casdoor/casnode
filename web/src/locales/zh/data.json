@@ -227,12 +227,12 @@
   },
   "login": {
     "Details": "详细信息",
+    "Failed to log in": "登录失败",
     "Help": "帮助",
     "Logged in successfully": "登录成功",
     "Signing In Error": "登录时遇到错误",
-    "Signing in...": "正在登录...",
-    "Failed to log in": "登录失败",
-    "Signing in automatically...": "正在自动登录..."
+    "Signing in automatically...": "正在自动登录...",
+    "Signing in...": "正在登录..."
   },
   "member": {
     "'s all created topics": " 创建的主题",
@@ -315,6 +315,8 @@
     "Created time": "创建时间",
     "Delete moderator success": "移除版主成功",
     "Description": "简介",
+    "Gitter API Token": "Gitter API Token",
+    "Gitter Room URL": "Gitter Room URL",
     "Google Group Cookie": "Google Group Cookie",
     "Header image": "头部图片",
     "Hot": "热度",
@@ -377,6 +379,7 @@
   },
   "plane": {
     "Add new plane": "新增位面",
+    "Are you sure to delete plane": "Are you sure to delete plane",
     "Background color": "背景颜色",
     "Change image": "更换图标",
     "Creat plane success": "创建位面成功",
@@ -446,6 +449,7 @@
     "Click here to search in ": "点击此处跳转搜索：",
     "No topics found": "没有找到任何帖子",
     "Press Enter to search in site.": "按回车键以在站内搜索。",
+    "Search result of ": "Search result of ",
     "loading...": "加载中..."
   },
   "sensitive": {
@@ -458,6 +462,7 @@
   "tab": {
     ", the number of posts is": "，帖子个数为",
     "Add new tab": "新建类别",
+    "Are you sure to delete tab": "Are you sure to delete tab",
     "Creat tab success": "创建类别成功",
     "Create": "创建",
     "Created time": "创建时间",
@@ -587,6 +592,7 @@
   },
   "translator": {
     "Add translator information success": "添加翻译信息成功",
+    "Are you sure to delete translator": "Are you sure to delete translator",
     "Delete": "删除",
     "Delete translator success": "删除翻译平台成功",
     "Disable": "禁用",

@@ -227,12 +227,12 @@
   },
   "login": {
     "Details": "Details",
+    "Failed to log in": "Failed to log in",
     "Help": "Help",
     "Logged in successfully": "Logged in successfully",
     "Signing In Error": "Signing In Error",
-    "Signing in...": "Signing in...",
-    "Failed to log in": "Failed to log in",
-    "Signing in automatically...": "Signing in automatically..."
+    "Signing in automatically...": "Signing in automatically...",
+    "Signing in...": "Signing in..."
   },
   "member": {
     "'s all created topics": "'s all created topics",
@@ -315,6 +315,8 @@
     "Created time": "Жасалған уақыты",
     "Delete moderator success": "Модыратыр сәтті жойылды",
     "Description": "Сипаттама",
+    "Gitter API Token": "Gitter API Token",
+    "Gitter Room URL": "Gitter Room URL",
     "Google Group Cookie": "Google Group Cookie",
     "Header image": "Бас жақтың суреті",
     "Hot": "Ыстық",
@@ -377,6 +379,7 @@
   },
   "plane": {
     "Add new plane": "Жаңа Plane қосу",
+    "Are you sure to delete plane": "Are you sure to delete plane",
     "Background color": "Артжағының түсі",
     "Change image": "Суретті ауыстыру",
     "Creat plane success": "Plane сәтті жасалды",
@@ -446,6 +449,7 @@
     "Click here to search in ": "Іздеу үшін осы жерді басыңыз ",
     "No topics found": "Топиктер табылмады",
     "Press Enter to search in site.": "Сайтта іздеу үшін Enter'ді басыныз.",
+    "Search result of ": "Search result of ",
     "loading...": "жүктелуде..."
   },
   "sensitive": {
@@ -458,6 +462,7 @@
   "tab": {
     ", the number of posts is": ", посттар саны",
     "Add new tab": "Жаңа tab қосу",
+    "Are you sure to delete tab": "Are you sure to delete tab",
     "Creat tab success": "Tab сәтті жасалды",
     "Create": "Жасау",
     "Created time": "Жасалған уақыты",
@@ -587,6 +592,7 @@
   },
   "translator": {
     "Add translator information success": "Аудармашы ақпаратын қосу сәтті аяқталды",
+    "Are you sure to delete translator": "Are you sure to delete translator",
     "Delete": "Жою",
     "Delete translator success": "Аудармашы сәтті жойылды",
     "Disable": "Өшіру",
