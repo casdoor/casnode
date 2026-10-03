@@ -65,7 +65,7 @@ https://casnode.org
 
 ## How to Contribute?
 
-Refer to Casdoor's contributing guide: https://casdoor.org/docs/contributing
+Refer to Casdoor's contributing guide: https://casdoor.ai/docs/contributing/
 
 ## License
 
