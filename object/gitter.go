@@ -438,7 +438,7 @@ func getGitterAvatarUrl(username string, avatar string) string {
 
 		if err != nil {
 			times += 1
-			fmt.Printf("[%d]: downloadFile() error: %s, times = %d\n", username, err.Error(), times)
+			fmt.Printf("[%s]: downloadFile() error: %s, times = %d\n", username, err.Error(), times)
 			if times >= 10 {
 				panic(err)
 			}

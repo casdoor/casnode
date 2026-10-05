@@ -2,6 +2,8 @@ package object
 
 import (
 	"encoding/json"
+	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -64,25 +66,11 @@ func StrTranslate(srcStr, targetLang string) *TranslateData {
 
 	srcStr = contentReg.ReplaceAllString(srcStr, replaceStr)
 
-	params := url.Values{
-		"target": {targetLang},
-		"format": {"text"},
-		"key":    {translator.Key},
-		"q":      {srcStr},
-	}
-	resp, _ := http.PostForm("https://translation.googleapis.com/language/translate/v2", params)
-	defer resp.Body.Close()
-
-	respByte, _ := ioutil.ReadAll(resp.Body)
-	var translateResp GoogleTranslationResult
-	translateResp.Error.Code = 0
-
-	err := json.Unmarshal(respByte, &translateResp)
+	translateStr, detectSrcLang, err := googleTranslate(googleTranslateEndpoint, translator.Key, srcStr, targetLang)
 	if err != nil {
-		panic(err)
+		translateData.ErrMsg = err.Error()
+		return translateData
 	}
-	translateStr := translateResp.Data.Translations[0].TranslatedText
-	detectSrcLang := translateResp.Data.Translations[0].DetectedSourceLanguage
 
 	replacedCb := translateReg.FindAllString(translateStr, -1)
 	var replacedCbList []string
@@ -103,14 +91,49 @@ func StrTranslate(srcStr, targetLang string) *TranslateData {
 		return cbList[replaceIndex-1]
 	})
 
-	if translateResp.Error.Code != 0 {
-		translateData.ErrMsg = translateResp.Error.Message
-	} else {
-		translateData.SrcLang = detectSrcLang
-		translateData.Target = translateStr
-	}
+	translateData.SrcLang = detectSrcLang
+	translateData.Target = translateStr
 
 	return translateData
+}
+
+var googleTranslateEndpoint = "https://translation.googleapis.com/language/translate/v2"
+
+// googleTranslate calls the Google Translation API and returns the translated
+// text together with the detected source language. Transport failures, API
+// error responses and empty results are reported as errors instead of causing
+// a nil pointer dereference or an index out of range panic.
+func googleTranslate(endpoint, key, text, targetLang string) (string, string, error) {
+	params := url.Values{
+		"target": {targetLang},
+		"format": {"text"},
+		"key":    {key},
+		"q":      {text},
+	}
+	resp, err := http.PostForm(endpoint, params)
+	if err != nil {
+		return "", "", err
+	}
+	defer resp.Body.Close()
+
+	respByte, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return "", "", err
+	}
+
+	var translateResp GoogleTranslationResult
+	if err = json.Unmarshal(respByte, &translateResp); err != nil {
+		return "", "", fmt.Errorf("invalid translation response (HTTP %d): %w", resp.StatusCode, err)
+	}
+	if translateResp.Error.Code != 0 {
+		return "", "", errors.New(translateResp.Error.Message)
+	}
+	if len(translateResp.Data.Translations) == 0 {
+		return "", "", errors.New("Translate Failed")
+	}
+
+	result := translateResp.Data.Translations[0]
+	return result.TranslatedText, result.DetectedSourceLanguage, nil
 }
 
 func AddTranslator(translator Translator) bool {
