@@ -15,13 +15,19 @@
 package routers
 
 import (
+	"fmt"
+	"html"
 	"net/http"
+	"os"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/context"
 	"github.com/casbin/casnode/object"
 	"github.com/casbin/casnode/util"
 )
+
+const defaultDescription = "Casnode is an open-source forum (BBS) software written in Go and React"
 
 func Static(ctx *context.Context) {
 	urlPath := ctx.Request.URL.Path
@@ -44,12 +50,31 @@ func Static(ctx *context.Context) {
 	if util.FileExist(path) {
 		if path == "web/build/index.html" {
 			FreshAccountActiveStatus(ctx)
+			serveIndexHtml(ctx)
+			return
 		}
 
 		http.ServeFile(ctx.ResponseWriter, ctx.Request, path)
 	} else {
-		http.ServeFile(ctx.ResponseWriter, ctx.Request, "web/build/index.html")
+		serveIndexHtml(ctx)
 	}
+}
+
+func serveIndexHtml(ctx *context.Context) {
+	content, err := os.ReadFile("web/build/index.html")
+	if err != nil {
+		panic(err)
+	}
+
+	res := string(content)
+	if conf := object.GetFrontConfById("forumName"); conf != nil && conf.Value != "" {
+		res = strings.Replace(res, "<title>Casnode</title>", fmt.Sprintf("<title>%s</title>", html.EscapeString(conf.Value)), 1)
+	}
+	if conf := object.GetFrontConfById("signinBoxSpan"); conf != nil && conf.Value != "" {
+		res = strings.Replace(res, fmt.Sprintf(`content="%s"`, defaultDescription), fmt.Sprintf(`content="%s"`, html.EscapeString(conf.Value)), 1)
+	}
+
+	http.ServeContent(ctx.ResponseWriter, ctx.Request, "index.html", time.Time{}, strings.NewReader(res))
 }
 
 // FreshAccountActiveStatus fresh member's online status.
