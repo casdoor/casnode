@@ -236,6 +236,11 @@ class TopicBox extends React.Component {
 
     if (!this.state.translation.translated) {
       TopicBackend.translateTopic(this.state.topicId, navigator.language).then((res) => {
+        if (res.err_msg) {
+          Setting.showMessage("error", res.err_msg);
+          return;
+        }
+
         this.setState((prevState) => {
           prevState.translation.content = res.target;
           prevState.translation.from = res.srcLang;

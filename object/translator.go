@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"regexp"
+	"time"
 )
 
 type Translator struct {
@@ -70,17 +71,37 @@ func StrTranslate(srcStr, targetLang string) *TranslateData {
 		"key":    {translator.Key},
 		"q":      {srcStr},
 	}
-	resp, _ := http.PostForm("https://translation.googleapis.com/language/translate/v2", params)
+	client := &http.Client{Timeout: 30 * time.Second}
+	resp, err := client.PostForm("https://translation.googleapis.com/language/translate/v2", params)
+	if err != nil {
+		translateData.ErrMsg = err.Error()
+		return translateData
+	}
 	defer resp.Body.Close()
 
-	respByte, _ := ioutil.ReadAll(resp.Body)
-	var translateResp GoogleTranslationResult
-	translateResp.Error.Code = 0
-
-	err := json.Unmarshal(respByte, &translateResp)
+	respByte, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		panic(err)
+		translateData.ErrMsg = err.Error()
+		return translateData
 	}
+
+	var translateResp GoogleTranslationResult
+	err = json.Unmarshal(respByte, &translateResp)
+	if err != nil {
+		translateData.ErrMsg = err.Error()
+		return translateData
+	}
+
+	if translateResp.Error.Code != 0 {
+		translateData.ErrMsg = translateResp.Error.Message
+		return translateData
+	}
+
+	if len(translateResp.Data.Translations) == 0 {
+		translateData.ErrMsg = "Translate Failed"
+		return translateData
+	}
+
 	translateStr := translateResp.Data.Translations[0].TranslatedText
 	detectSrcLang := translateResp.Data.Translations[0].DetectedSourceLanguage
 
@@ -103,13 +124,8 @@ func StrTranslate(srcStr, targetLang string) *TranslateData {
 		return cbList[replaceIndex-1]
 	})
 
-	if translateResp.Error.Code != 0 {
-		translateData.ErrMsg = translateResp.Error.Message
-	} else {
-		translateData.SrcLang = detectSrcLang
-		translateData.Target = translateStr
-	}
-
+	translateData.SrcLang = detectSrcLang
+	translateData.Target = translateStr
 	return translateData
 }
 
