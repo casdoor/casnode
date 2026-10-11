@@ -15,6 +15,7 @@
 package discuzx
 
 import (
+	"github.com/casbin/casnode/conf"
 	"github.com/casbin/casnode/object"
 )
 
